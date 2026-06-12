@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Script Generator</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    .glass-card {
+        background: rgba(31, 41, 55, 0.75);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+</style>
+
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black flex items-center justify-center px-4">
+
+
+<div class="glass-card w-full max-w-2xl p-8 rounded-3xl shadow-2xl">
+
+    <div class="text-center mb-8">
+
+        <h1 class="text-5xl font-bold text-white mb-3">
+            🎬 AI Video Script Generator
+        </h1>
+
+        <p class="text-gray-300 text-lg">
+            Generate complete video scripts, hooks, thumbnail ideas,
+            storyboards and hashtags using AI.
+        </p>
+
+    </div>
+
+    <form action="/generate" method="POST" id="scriptForm">
+
+        <label class="block mb-2 text-gray-300 font-medium">
+            Video Topic
+        </label>
+        <input
+            type="text"
+            name="topic"
+            placeholder="e.g. How AI Will Change Video Editing"
+            required
+            class="w-full p-4 rounded-xl bg-gray-800 text-white border border-gray-700 focus:border-purple-500 focus:outline-none mb-6"
+        ><label class="block mb-2 text-gray-300 font-medium">
+    Additional Requirements
+    </label>
+
+    <textarea
+        name="requirements"
+        rows="4"
+        placeholder="Example: Make it 60 seconds long, target beginners, include a strong CTA, use storytelling style..."
+        class="w-full p-4 rounded-xl bg-gray-800 text-white border border-gray-700 focus:border-purple-500 focus:outline-none mb-6"
+    ></textarea>
+
+        <label class="block mb-2 text-gray-300 font-medium">
+            Platform
+        </label>
+
+        <select
+            name="video_type"
+            class="w-full p-4 rounded-xl bg-gray-800 text-white border border-gray-700 focus:border-purple-500 focus:outline-none mb-6"
+        >
+            <option>YouTube</option>
+            <option>Instagram Reel</option>
+            <option>TikTok</option>
+        </select>
+
+        <label class="block mb-2 text-gray-300 font-medium">
+            Tone
+        </label>
+
+        <select
+            name="tone"
+            class="w-full p-4 rounded-xl bg-gray-800 text-white border border-gray-700 focus:border-purple-500 focus:outline-none mb-8"
+        >
+            <option>Professional</option>
+            <option>Casual</option>
+            <option>Storytelling</option>
+            <option>Motivational</option>
+        </select>
+
+        <button
+            id="generateBtn"
+            type="submit"
+            class="w-full bg-purple-600 hover:bg-purple-700 transition duration-300 py-4 rounded-xl font-semibold text-lg shadow-lg"
+        >
+            🚀 Generate Script
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+    document.getElementById("scriptForm").addEventListener("submit", function() {
+
+        const btn = document.getElementById("generateBtn");
+
+        btn.innerHTML = "⏳ Generating...";
+        btn.disabled = true;
+
+    });
+</script>
+
+
+</body>
+</html>

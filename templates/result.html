@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Video Package</title>
+
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    .glass-card {
+        background: rgba(31, 41, 55, 0.75);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+</style>
+
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white p-6">
+
+<div class="max-w-6xl mx-auto">
+
+
+<div class="text-center mb-8">
+
+    <h1 class="text-5xl font-bold mb-3">
+        🎬 Generated Video Package
+    </h1>
+
+    <p class="text-gray-300">
+        Your AI-generated script, storyboard, thumbnail ideas and content strategy.
+    </p>
+
+</div>
+
+<div class="glass-card rounded-3xl shadow-2xl p-8">
+
+    <div class="flex items-center justify-between mb-6">
+
+        <h2 class="text-2xl font-semibold">
+            Generated Content
+        </h2>
+
+        <button
+            onclick="copyScript()"
+            class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg transition"
+        >
+            📋 Copy
+        </button>
+
+    </div>
+
+    <div
+        id="scriptContent"
+        class="bg-gray-900 rounded-xl p-6 border border-gray-700 overflow-auto max-h-[600px]"
+    >
+        <pre class="whitespace-pre-wrap text-gray-200 leading-relaxed font-sans">{{ result }}</pre>
+    </div>
+
+</div>
+
+<div class="flex flex-wrap gap-4 justify-center mt-8">
+
+    <a
+        href="/download"
+        class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-xl font-medium transition"
+    >
+        📄 Download PDF
+    </a>
+
+    <a
+        href="/"
+        class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl font-medium transition"
+    >
+        🚀 Generate Another
+    </a>
+
+</div>
+
+<div
+    id="copyMessage"
+    class="hidden text-center mt-4 text-green-400 font-medium"
+>
+    ✅ Script copied successfully!
+</div>
+
+
+</div>
+<div class="bg-gray-800 rounded-2xl p-6 mt-8">
+
+    <h2 class="text-2xl font-bold mb-4">
+        Modify Script
+    </h2>
+
+    <form action="/refine" method="POST">
+
+        <textarea
+            name="changes"
+            rows="4"
+            placeholder="Example: Make the script shorter and more engaging"
+            class="w-full p-4 rounded-lg text-black"
+            required
+        ></textarea>
+
+        <button
+            type="submit"
+            class="mt-4 px-6 py-3 bg-purple-600 rounded-lg"
+        >
+            ✨ Refine Script
+        </button>
+
+    </form>
+
+</div>
+<script>
+function copyScript() {
+
+    const text =
+        document.getElementById("scriptContent").innerText;
+
+    navigator.clipboard.writeText(text);
+
+    const msg =
+        document.getElementById("copyMessage");
+
+    msg.classList.remove("hidden");
+
+    setTimeout(() => {
+        msg.classList.add("hidden");
+    }, 2500);
+}
+</script>
+
+</body>
+</html>
